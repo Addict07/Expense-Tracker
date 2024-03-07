@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cashdrag - {% block title %} {% endblock %}</title>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css"  rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<style>
+    /* .main-content.sidebar-open {
+        margin-left: 0;
+    }
+    #sidebar-container.hidden {
+        width: 0;
+        overflow: hidden;
+    } */
+
+    @media (max-width: 1050px) {
+        .main-content {
+            width: 100%;
+        }
+    }
+</style>
+<body>
+
+    <div>
+        <div>
+            {% include "includes/navbar.html" %}
+        </div>
+
+        <div class="flex">
+            <div id="sidebar-container" class="w-64 transition-all duration-300 ease-in-out">
+                {% include "includes/sidebar.html" %}
+            </div>
+            <div id="main-content" class="main-content flex-grow pt-20 px-3 transition-all duration-300 ease-in-out">
+                <div>
+                    {% block content %} {% endblock %}
+                </div>
+            </div>
+        </div>
+
+        
+    </div>
+<!--    <script>-->
+<!--    const actionPlan = document.getElementById('action-plan');-->
+<!--    const submenu = document.getElementById('submenu');-->
+<!--    const arrowIcon = document.getElementById('arrow-icon');-->
+
+<!--    actionPlan.addEventListener('click', (e) => {-->
+<!--        e.preventDefault(); // Prevent the default behavior of the link-->
+<!--        submenu.classList.toggle('hidden'); // Toggle the 'hidden' class-->
+<!--        arrowIcon.classList.toggle('rotate-180'); // Toggle the rotation of the arrow icon-->
+<!--    });-->
+<!--</script>-->
+
+    <script>
+    const actionPlan = document.getElementById('action-plan');
+    const submenu = document.getElementById('submenu');
+    const arrowIcon = document.getElementById('arrow-icon');
+
+    actionPlan.addEventListener('click', (e) => {
+        e.preventDefault(); // Prevent the default behavior of the link
+        submenu.classList.toggle('hidden'); // Toggle the 'hidden' class
+        arrowIcon.classList.toggle('rotate-180'); // Toggle the rotation of the arrow icon
+    });
+</script>
+
+
+
+    <script>
+        const sidebarToggler = document.getElementById("toggleBtn");
+        const sidebar = document.getElementById("sidebar-container");
+        const mainContent = document.getElementById("main-content");
+
+        sidebarToggler.addEventListener("click", () => {
+            sidebar.classList.toggle("hidden");
+            mainContent.classList.toggle("sidebar-open");
+        })
+
+
+
+
+    </script>
+</body>
+</html>
