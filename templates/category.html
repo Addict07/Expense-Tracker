@@ -1,0 +1,29 @@
+{% extends "layouts/dashboard-base.html" %} {% block content %}
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+  <div class="relative overflow-x-auto">
+    <table
+      class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400"
+    >
+      <thead class="text-xs text-white uppercase bg-gray-800 dark:bg-gray-700">
+        <tr>
+          <th scope="col" class="px-6 py-3">Date</th>
+          <th scope="col" class="px-6 py-3">Category</th>
+          <th scope="col" class="px-6 py-3">Total Cost</th>
+
+          <!-- New column for actions -->
+        </tr>
+      </thead>
+      <tbody>
+        {% for date, categories in total_costs.items() %} {% for category,
+        total_cost in categories.items() %}
+        <tr class="bg-white">
+          <td class="px-6 py-4 text-gray-900">{{ date}}</td>
+          <td class="px-6 py-4 text-gray-900">{{ category }}</td>
+          <td class="px-6 py-4 text-gray-900">{{ total_cost }}</td>
+        </tr>
+        {% endfor %} {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}
