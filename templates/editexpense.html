@@ -1,7 +1,7 @@
 {% extends "layouts/dashboard-base.html" %} {% block content %}
 <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
   <h1><i>Enter Expense Details</i></h1>
-  <form class="max-w-sm mx-auto" action="/expense" method="post">
+  <form class="max-w-sm mx-auto" method="post">
     <div class="mb-5">
       <label for="Date" class="block mb-2 text-sm font-medium text-gray-900"
         >Date of Expense</label
@@ -10,6 +10,7 @@
         type="date"
         id="date"
         name="date"
+        value="{{ expense.date }}"
         class="bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
         placeholder=" "
         required
@@ -22,7 +23,8 @@
     <select
       id="category"
       name="category"
-      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+      value="{{ expense.category }}"
+      class="bg-gray-50 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
     >
       <option selected>Select a Category</option>
       <option value="house">Housing</option>
@@ -40,6 +42,7 @@
         type="text"
         id="item"
         name="item"
+        value="{{ expense.item }}"
         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
         required
       />
@@ -55,6 +58,7 @@
         type="text"
         id="cost"
         name="cost"
+        value="{{ expense.cost }}"
         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
         required
       />
@@ -63,9 +67,9 @@
     <button
       type="submit"
       class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
-      name="addexpense"
+      name="edit_expense"
     >
-      Add Expense
+      Update Expense
     </button>
   </form>
 </div>
